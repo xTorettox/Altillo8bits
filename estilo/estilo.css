@@ -1,0 +1,213 @@
+@font-face {
+    font-family: pressstart2p;
+    src: url("./fuentes/pressstart2p.ttf") format("truetype");
+}
+
+.menuOn {
+padding-top: 5px;
+padding-left: 1em;
+height: 62px;
+font-family: pressstart2p, Helvetica, sans-serif;
+background-color: rgba(32, 98, 28, .8);
+border-style: dashed;
+border-width: 5px;
+border-radius: 5px;
+}
+
+.menuOff {
+padding-top: 5px;
+padding-left: 1em;
+height: 62px;
+font-family: pressstart2p, Helvetica, sans-serif;
+background-color: rgba(0, 75, 0, .4);
+border-style: dashed;
+border-width: 5px;
+border-radius: 5px;
+}
+ 
+.cabeceraOn {
+top: 0;
+left: 0;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left:14em;
+height: 9em;
+position: relative;
+font-family: pressstart2p, Helvetica, sans-serif;
+background-color: rgba(255, 255, 255, .3);
+}
+
+.cabeceraOff {
+top: 0;
+left: 0;
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left:14em;
+height: 9em;
+position: relative;
+font-family: pressstart2p, Helvetica, sans-serif;
+background-color: rgba(50, 50, 50, .4);
+}
+ 
+#cuerpo {
+height: 400px;
+/*background-color: #C60;*/
+background-color: rgba(204, 102, 0, .5);
+font-family: pressstart2p, Helvetica, sans-serif;
+overflow-y:scroll;
+padding-bottom: 10px;
+margin-bottom: 5px;
+}
+ 
+#contenedor {
+font-family: pressstart2p, Helvetica, sans-serif;
+margin-left: 5em;
+margin-right: 5em;
+}
+ 
+.pieOn {
+height: 33px;
+background-color: rgb(0,75,202,.4);
+font-family: pressstart2p, Helvetica, sans-serif;
+border-style: dashed;
+border-width: 5px;
+border-radius: 5px;
+border-color: #ddd;
+}
+
+.pieOff {
+height: 33px;
+background-color: rgb(0,22,64,.4);
+font-family: pressstart2p, Helvetica, sans-serif;
+border-style: dashed;
+border-width: 5px;
+border-radius: 5px;
+border-color: #ddd;
+}
+
+body {
+overflow: hidden;
+}
+/**/
+.imagenEscalaGris {
+	filter: grayscale(90%);
+	
+}
+/**/										/* EFECTOS DE IMAGEN */
+.imagenEscalaGris:hover {
+	filter: grayscale(0%);
+	-webkit-transform:scale(1.03);
+	transform:scale(1.03);
+	transition:all .5s ease-in-out;
+}
+
+.imagenRotarMatiz {
+	filter: grayscale(80%);
+}
+
+.imagenRotarMatiz:hover {
+	-webkit-transform:scale(1.03);
+	filter: hue-rotate(45);
+	transition:all .5s ease-in-out;
+}
+
+.imagenSaturada:hover {
+	filter: saturate(195%);
+	transition:all .5s ease-in-out;
+}
+
+.imagenSaturadaMax:hover {
+	filter: saturate(365%);
+	transition:all .5s ease-in-out;
+}
+
+.imagenZoom:hover {
+	-webkit-transform:scale(1.03);transform:scale(1.03);
+	transition:all .5s ease-in-out;
+}
+
+.imagenZoomMin:hover {
+	-webkit-transform:scale(1.01);transform:scale(1.01);
+	transition:all .5s ease-in-out;
+}
+
+												/* MENU */
+nav ul li ul {
+	display: none;
+	top: 2.5em;
+}
+
+nav li:hover > ul {
+	display: block;
+}
+
+nav li {
+	position: relative;
+}
+
+nav li ul {
+	position: absolute;
+}
+/*
+.llave {
+	float: right;
+	width: auto;
+	height: auto;
+	max-height:45px;
+	max-width:45px;
+}*/
+
+/* ANIMACION */
+.latido {
+    animation-name: pulse_animation;
+    animation-duration: 3000ms;
+    transform-origin:70% 70%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pulse_animation {
+    0% { transform: scale(1); }
+    30% { transform: scale(1); }
+    40% { transform: scale(1.08); }
+    50% { transform: scale(1); }
+    60% { transform: scale(1); }
+    70% { transform: scale(1.05); }
+    80% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+/*                                              LA SCROLLBAR                       */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border: 18px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ffcd00;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 17px none #ffffff;
+  border-radius: 13px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #666666;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
