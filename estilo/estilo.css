@@ -87,11 +87,25 @@ border-color: #ddd;
 
 body {
 overflow: hidden;
+background-size:cover;
+background-repeat: no-repeat;
+}
+
+.day {
+  background-image: url("../img/FondoDia.jpg");
+}
+.night {
+  background-image: url("../img/FondoNoche.jpg");
+}
+
+#iconos {
+  float:left;
+  padding: 15px;
+  overflow:hidden;
 }
 /**/
 .imagenEscalaGris {
 	filter: grayscale(90%);
-	
 }
 /**/										/* EFECTOS DE IMAGEN */
 .imagenEscalaGris:hover {
