@@ -65,14 +65,14 @@
 <body class="day">
     <!-- social media icons -->
     <div id="iconos">
-        <a href="#"><i class="icon -medium -twitter" style="float: inherit; margin-bottom: 5px;"></i></a><br>
-        <a href="#"><i class="icon -medium -facebook" style="float: inherit; margin-bottom: 5px;"></i></a><br>
-        <a href="#"><i class="icon -medium -youtube" style="float: inherit; margin-bottom: 5px;"></i></a><br>
+        <a href="#"><i class="icon -medium -twitter"></i></a><br>
+        <a href="#"><i class="icon -medium -facebook"></i></a><br>
+        <a href="#"><i class="icon -medium -youtube"></i></a><br>
     </div>
 
     <div id="contenedor">
 
-        <div id="cabecera" class="cabeceraOn" style="border-radius: 5px;">
+        <div id="cabecera" class="cabeceraOn">
             <div id="imgCabecera" style="background-color: rgba(0, 0, 0, 1);">
                 <a href="#" onclick="irBienvenida()"><img class="imagenSaturada" src="img/CoinBox LogoPix.png"
                         style="float: left;height: auto; width: auto; max-height: 120;"></a>

@@ -49,6 +49,10 @@ font-family: pressstart2p, Helvetica, sans-serif;
 background-color: rgba(50, 50, 50, .4);
 }
  
+#cabecera {
+  border-radius: 5px;
+}
+
 #cuerpo {
 height: 400px;
 /*background-color: #C60;*/
@@ -103,6 +107,11 @@ background-repeat: no-repeat;
   padding: 15px;
   overflow:hidden;
 }
+
+#iconos a {
+  float: inherit; margin-bottom: 5px;
+}
+
 /**/
 .imagenEscalaGris {
 	filter: grayscale(90%);
