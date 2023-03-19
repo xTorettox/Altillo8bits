@@ -53,6 +53,27 @@ background-color: rgba(50, 50, 50, .4);
   border-radius: 5px;
 }
 
+/* Llaves para cambiar el tema - Theme changing keys */
+#llaveon {
+  display: flex;
+}
+#llaveoff {
+  display: none;
+}
+#llaveon, #llaveoff {
+  float: right;
+  width: auto;
+  height: auto;
+  max-height:45px;
+  max-width:45px;
+}
+
+.button {
+  float: left;
+  width: 11em;
+  text-align: center;
+}
+
 #cuerpo {
 height: 400px;
 /*background-color: #C60;*/
