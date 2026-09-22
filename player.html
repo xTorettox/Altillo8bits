@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altillo Emulator Player</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #game {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #game canvas, #game iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+
+    <script>
+        // Interceptar teclas de navegación para evitar scroll involuntario del navegador
+        window.addEventListener('keydown', function(e) {
+            if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', ' ', 'PageUp', 'PageDown'].includes(e.key) ||
+                [32, 37, 38, 39, 40, 33, 34].includes(e.keyCode)) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Leer parámetros enviados por la ventana principal
+        const params = new URLSearchParams(window.location.search);
+        const core = params.get('core') || 'nes';
+        const gameUrl = params.get('romUrl');
+        const gameName = params.get('gameName') || 'Juego Altillo';
+        const gameFileName = params.get('gameFileName') || (gameName.includes('.') ? gameName : (gameName + (core === 'psx' ? '.iso' : (core === 'snes' ? '.sfc' : (core === 'gba' ? '.gba' : (core === 'segaMD' ? '.md' : (core === 'n64' ? '.z64' : (core === 'gb' ? '.gb' : '.nes'))))))));
+        const saveUrl = params.get('saveUrl');
+
+        window.EJS_player = '#game';
+        window.EJS_core = core;
+        window.EJS_gameUrl = gameUrl;
+        window.EJS_gameName = gameFileName;
+        window.EJS_startOnLoaded = true;
+        window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+
+        if (saveUrl && saveUrl !== 'null' && saveUrl !== 'undefined') {
+            window.EJS_loadStateURL = saveUrl;
+        }
+
+        // Callback de Save State: notificar a la ventana principal para guardar en Drive / Local
+        window.EJS_onSaveState = function(args) {
+            try {
+                window.parent.postMessage({
+                    type: 'ALTILLO_SAVE_STATE',
+                    gameName: gameName,
+                    state: args.state
+                }, '*');
+            } catch (e) {
+                console.error("Error posting save state to parent:", e);
+            }
+        };
+
+        // Callback de Tarjeta de Memoria / Battery Save (.srm)
+        window.EJS_onSaveSave = function(args) {
+            try {
+                window.parent.postMessage({
+                    type: 'ALTILLO_SAVE_SAVE',
+                    gameName: gameName,
+                    save: args.save
+                }, '*');
+            } catch (e) {
+                console.error("Error posting save to parent:", e);
+            }
+        };
+
+        // Notificar al padre cuando el emulador esté listo o cargado
+        window.EJS_onLoadState = function() {
+            window.parent.postMessage({ type: 'ALTILLO_STATE_LOADED' }, '*');
+        };
+    </script>
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</body>
+</html>
